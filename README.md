@@ -1,2 +1,2 @@
-# erum-2018-clean-r-code
+# clean-r-code
 workshop materials

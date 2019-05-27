@@ -26,7 +26,6 @@ glimpse_extreme_regions(home_cities, countries, country_code)
 home_cities %>% 
   summarize_population(country_code, city, long, lat) %>%
   filter(num_contact >= 1000) %>%
-  # FIXME could not find function "plot_geo"
   plot_geo(lat = ~lat, lon = ~long) %>%
   add_markers(
     size = ~log10(num_contact),

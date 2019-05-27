@@ -2,7 +2,7 @@ library("tidyverse")
 
 # load data ---------------------------------------------------------------
 
-data_path <- file.path(rprojroot::find_root('erum-2018-clean-r-code.Rproj'), "data")
+data_path <- file.path(rprojroot::find_root('clean-r-code-student.Rproj'), "data")
 
 # NA is valid country code, stands for Namibia, so should not be read as NA
 countries <- read_csv(file.path(data_path, "countries.csv"), na = "")

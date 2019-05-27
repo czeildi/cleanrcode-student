@@ -1,10 +1,10 @@
 library("tidyverse")
 
-source("2_cleaned_check/R/clean.R")
+source("2_cleaned_check/R/clean_2.R")
 
 # load data ---------------------------------------------------------------
 
-data_path <- file.path(rprojroot::find_root('erum-2018-clean-r-code.Rproj'), "data")
+data_path <- file.path(rprojroot::find_root('clean-r-code-student.Rproj'), "data")
 
 # NA is valid country code, stands for Namibia, so should not be read as NA
 countries <- read_csv(file.path(data_path, "countries.csv"), na = "")
@@ -60,3 +60,4 @@ max_latitude_by_groups(home_cities)
 max_latitude_by_groups(home_cities, client_id)
 max_latitude_by_groups(home_cities, country_code, city)
 max_latitude_by_groups(home_cities, client_id, country_code, city)
+

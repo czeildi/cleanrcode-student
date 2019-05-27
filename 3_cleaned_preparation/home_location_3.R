@@ -1,11 +1,11 @@
 library("tidyverse")
 library("plotly")
 
-source("3_cleaned_preparation/R/clean.R")
+source("3_cleaned_preparation/R/clean_3.R")
 
 # load data ---------------------------------------------------------------
 
-data_path <- file.path(rprojroot::find_root('erum-2018-clean-r-code.Rproj'), "data")
+data_path <- file.path(rprojroot::find_root('clean-r-code-student.Rproj'), "data")
 
 # NA is valid country code, stands for Namibia, so should not be read as NA
 countries <- read_csv(file.path(data_path, "countries.csv"), na = "")
@@ -26,6 +26,7 @@ glimpse_extreme_regions(home_cities, countries, country_code)
 home_cities %>% 
   summarize_population(country_code, city, long, lat) %>%
   filter(num_contact >= 1000) %>%
+  # FIXME could not find function "plot_geo"
   plot_geo(lat = ~lat, lon = ~long) %>%
   add_markers(
     size = ~log10(num_contact),

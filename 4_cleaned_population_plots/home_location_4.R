@@ -5,7 +5,7 @@ purrr::walk(list.files("4_cleaned_population_plots/R", full.names = TRUE), sourc
 
 # load data ---------------------------------------------------------------
 
-data_path <- file.path(rprojroot::find_root('erum-2018-clean-r-code.Rproj'), "data")
+data_path <- file.path(rprojroot::find_root('clean-r-code-student.Rproj'), "data")
 
 # NA is valid country code, stands for Namibia, so should not be read as NA
 countries <- read_csv(file.path(data_path, "countries.csv"), na = "")
@@ -24,6 +24,7 @@ glimpse_extreme_regions(home_cities, countries, country_code, city)
 glimpse_extreme_regions(home_cities, countries, country_code)
 
 home_cities %>% 
+  # FIXME could not find function "plot_geo" 
   summarize_population(country_code, city, long, lat) %>%
   filter(num_contact >= 1000) %>%
   plot_city_populations()
